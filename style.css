@@ -1,0 +1,85 @@
+body {
+  width: 250px;
+  padding: 4px;
+}
+
+table {
+  width: 100%;
+  text-align: end;
+}
+
+.custom-input {
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 4px 0px 8px 0px;
+  outline: none;
+  padding: 4px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+.custom-input:focus {
+  border-color: dodgerBlue;
+  box-shadow: 0 0 4px 0 dodgerBlue;
+}
+
+.btn {
+  width: 100%;
+  background-color: rgb(25, 140, 255);
+  border: 2px solid rgb(25, 140, 255);
+  border-radius: 4px;
+  color: white;
+  padding: 8px 16px;
+  margin: 4px 0px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(0, 100, 255);
+  border-color: rgb(0, 100, 255);
+}
+
+.btn:active {
+  background-color: rgb(120, 185, 250);
+  border-color: rgb(120, 185, 250);
+  transform: translateY(1.5px);
+}
+
+.btn > i {
+  position: absolute;
+  left: 30px;
+  font-size: large;
+}
+
+.ghost {
+  background-color: white;
+  border: 2px solid rgb(25, 140, 255);
+  color: rgb(25, 140, 255);
+}
+
+.ghost:hover {
+  background-color: rgb(25, 140, 255);
+  border-color: rgb(25, 140, 255);
+  color: white;
+}
+
+.ghost:active {
+  background-color: rgb(120, 185, 250);
+  border-color: rgb(120, 185, 250);
+  transform: translateY(1.5px);
+}
+
+#home {
+  background-color: orange;
+  border: 2px solid orange;
+}
+
+#home:hover {
+  background-color: rgb(255, 140, 0);
+  border-color: rgb(255, 140, 0);
+}
+
+#home:active {
+  background-color: rgb(255, 180, 65);
+  border-color: rgb(255, 180, 65);
+}
