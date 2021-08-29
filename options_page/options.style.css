@@ -1,6 +1,11 @@
+html {
+  background-color: #f8f9fa;
+}
+
 body {
   font-size: large;
   color: #555;
+  background-color: white;
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
