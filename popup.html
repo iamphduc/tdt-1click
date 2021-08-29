@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>1Click TDT</title>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>1Click TDT</title>
-    <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link rel="stylesheet" href="popup.style.css" />
   </head>
   <body>
     <table>
@@ -24,38 +24,40 @@
 
     <hr />
 
-    <div>
-      <button id="home" class="btn" type="button">
-        <i class="fa fa-home"></i>Trang chủ
-      </button>
-      <button id="notification" class="btn" type="button">
+    <button id="home" data-id="home" class="btn" type="button">
+      <i class="fa fa-home"></i>Trang chủ
+    </button>
+
+    <div class="btn-group">
+      <button data-id="notification" class="btn main" type="button">
         <i class="fa fa-bell"></i>Thông báo
       </button>
-      <button id="schedule" class="btn" type="button">
+      <button data-id="schedule" class="btn main" type="button">
         <i class="fa fa-calendar"></i>Thời khoá biểu
       </button>
-      <button id="score" class="btn" type="button">
+      <button data-id="score" class="btn main" type="button">
         <i class="fa fa-check"></i>Kết quả học tập
       </button>
-      <button id="elearning" class="btn" type="button">
+      <button data-id="elearning" class="btn main" type="button">
         <i class="fa fa-book"></i>Elearning
       </button>
-      <button id="train" class="btn ghost" type="button">
+      <button data-id="train" class="btn ghost" type="button">
         <i class="fa fa-trophy"></i>Điểm rèn luyện
       </button>
-      <button id="exam" class="btn ghost" type="button">
+      <button data-id="exam" class="btn ghost" type="button">
         <i class="fa fa-pencil-square-o"></i>Lịch thi
       </button>
-      <button id="map" class="btn ghost" type="button">
+      <button data-id="map" class="btn ghost" type="button">
         <i class="fa fa-mortar-board"></i>Sơ đồ đào tạo
       </button>
-      <button id="tuition" class="btn ghost" type="button">
+      <button data-id="tuition" class="btn ghost" type="button">
         <i class="fa fa-money"></i>Học phí
       </button>
-      <button id="options" class="btn ghost" type="button">
-        <i class="fa fa-wrench"></i>Cài đặt
-      </button>
     </div>
+
+    <button id="options" data-id="options" class="btn" type="button">
+      <i class="fa fa-gear"></i>Cài đặt
+    </button>
 
     <script src="popup.js"></script>
   </body>
