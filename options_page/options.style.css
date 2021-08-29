@@ -23,26 +23,35 @@ body {
 
 .btn {
   display: flex;
-  background-color: white;
-  color: rgb(25, 140, 255);
-  border: 2px solid rgb(25, 140, 255);
+  border: 2px solid;
   border-radius: 4px;
   padding: 8px 16px;
   cursor: pointer;
   transition: 0.2s ease;
 }
 
-.btn.btn--active {
-  color: white;
+.main {
   background-color: rgb(25, 140, 255);
+  border-color: rgb(25, 140, 255);
+  color: white;
+}
+
+.ghost {
+  background-color: white;
+  border: 2px solid rgb(25, 140, 255);
+  color: rgb(25, 140, 255);
 }
 
 .btn:active {
-  color: white;
-
   background-color: rgb(120, 185, 250);
   border-color: rgb(120, 185, 250);
   transform: translateY(1.5px);
+}
+
+.btn--not-active {
+  background-color: #ccc;
+  border-color: #ccc;
+  color: white;
 }
 
 .btn > i {
@@ -50,8 +59,16 @@ body {
   font-size: large;
 }
 
+.div-center-items {
+  display: flex;
+  justify-content: flex-end;
+}
+
 #save {
-  width: 100%;
-  margin-top: 16px;
+  width: 20%;
+  margin-top: 2rem;
   justify-content: center;
+  background-color: #33be54;
+  border-color: #33be54;
+  color: white;
 }

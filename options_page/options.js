@@ -15,8 +15,8 @@ function render() {
     const isSelected = quickAccessButtons.find((e) => e === id);
 
     isSelected
-      ? btn.classList.add("btn--active")
-      : btn.classList.remove("btn--active");
+      ? btn.classList.remove("btn--not-active")
+      : btn.classList.add("btn--not-active");
   });
 }
 
