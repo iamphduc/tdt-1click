@@ -37,5 +37,5 @@ saveBtn.addEventListener("click", async () => {
   await chrome.storage.sync.set({
     quickAccessButtons: quickAccessButtons,
   });
-  alert("Saved");
+  alert("Đã lưu");
 });
