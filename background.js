@@ -28,7 +28,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 function openPage(url) {
-  chrome.tabs.create({ url: loginURL, active: false }, (tab) => {
+  chrome.tabs.create({ url: loginURL, active: true }, (tab) => {
     function handler(tabId, changeInfo, tabInfor) {
       if (tabId === tab.id && changeInfo.status === "complete") {
         chrome.tabs.onUpdated.removeListener(handler);
@@ -39,9 +39,9 @@ function openPage(url) {
           });
           chrome.tabs.onUpdated.addListener(handler);
         } else {
-          chrome.tabs.create({ url });
-          chrome.tabs.remove(tabInfor.id);
-          // chrome.tabs.update(tabInfor.id, { url });
+          // chrome.tabs.create({ url });
+          // chrome.tabs.remove(tabInfor.id);
+          chrome.tabs.update(tabInfor.id, { url });
         }
       }
     }
