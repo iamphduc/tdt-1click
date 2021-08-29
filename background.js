@@ -13,17 +13,16 @@ const SCHOOL_URL = {
 };
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request == "onStarted") {
-    chrome.storage.sync.get("loginData", (data) => {
-      sendResponse(data.loginData);
-    });
-    return true; // async
+  if (request == "optionsClicked") {
+    if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage();
+    else window.open(chrome.runtime.getURL("options.html"));
+    sendResponse();
   }
 
   if (request.message == "btnClicked") {
     openPage(SCHOOL_URL[request.type]);
     sendResponse();
-    return true;
+    return true; // async
   }
 });
 
