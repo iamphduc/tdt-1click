@@ -39,9 +39,9 @@ function openPage(url) {
           });
           chrome.tabs.onUpdated.addListener(handler);
         } else {
-          chrome.tabs.create({ url });
-          chrome.tabs.remove(tabInfor.id);
-          // chrome.tabs.update(tabInfor.id, { url });
+          // chrome.tabs.create({ url });
+          // chrome.tabs.remove(tabInfor.id);
+          chrome.tabs.update(tabInfor.id, { url });
         }
       }
     }
