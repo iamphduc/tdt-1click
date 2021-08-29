@@ -14,7 +14,12 @@ chrome.storage.sync.get("loginData", (data) => {
 const defaultButtons = ["notification", "schedule", "score", "elearning"];
 
 chrome.storage.sync.get("quickAccessButtons", (res) => {
-  const data = res ? res.quickAccessButtons : defaultButtons;
+  let data;
+  if (!res.quickAccessButtons) {
+    data = defaultButtons;
+    chrome.storage.sync.set({ quickAccessButtons: defaultButtons });
+  } else data = res.quickAccessButtons;
+
   render(data);
 });
 
