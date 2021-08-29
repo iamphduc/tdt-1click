@@ -1,0 +1,52 @@
+body {
+  font-size: large;
+  color: #555;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  box-shadow: 0 0 6px -2px #555;
+  border-radius: 20px;
+}
+
+.btn-group {
+  width: 100%;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, 180px);
+  justify-content: space-evenly;
+}
+
+.btn {
+  display: flex;
+  background-color: white;
+  color: rgb(25, 140, 255);
+  border: 2px solid rgb(25, 140, 255);
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn.btn--active {
+  color: white;
+  background-color: rgb(25, 140, 255);
+}
+
+.btn:active {
+  color: white;
+
+  background-color: rgb(120, 185, 250);
+  border-color: rgb(120, 185, 250);
+  transform: translateY(1.5px);
+}
+
+.btn > i {
+  margin-right: 30px;
+  font-size: large;
+}
+
+#save {
+  width: 100%;
+  margin-top: 16px;
+  justify-content: center;
+}
