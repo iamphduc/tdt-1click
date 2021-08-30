@@ -2,8 +2,9 @@ const loginURL = "https://stdportal.tdtu.edu.vn/Login/Index";
 
 const SCHOOL_URL = {
   // basic-theme
-  home: "https://stdportal.tdtu.edu.vn/Home/Index",
+  home: "https://stdportal.tdtu.edu.vn",
   notification: "https://studentnews.tdtu.edu.vn/Home/Index",
+  education: "https://old-stdportal.tdtu.edu.vn/dkmh-main",
   schedule: "https://lichhoc-lichthi.tdtu.edu.vn/tkb2.aspx",
   score: "https://ketquahoctap.tdtu.edu.vn/home/diemhocky",
   train: "https://stdportal.tdtu.edu.vn/main/hoatdongphongtrao",
