@@ -38,9 +38,12 @@ document.querySelectorAll(".btn").forEach((btn) => {
     const message = "btnClicked";
     const type = this.getAttribute("data-id");
 
-    if (type == "options") chrome.runtime.sendMessage("optionsClicked");
-    else if (await checkInput()) chrome.runtime.sendMessage({ message, type });
+    if (await checkInput()) chrome.runtime.sendMessage({ message, type });
   });
+});
+
+document.getElementById("options").addEventListener("click", () => {
+  chrome.runtime.sendMessage("optionsClicked");
 });
 
 async function checkInput() {

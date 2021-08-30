@@ -11,53 +11,127 @@
     <link rel="stylesheet" href="popup.style.css" />
   </head>
   <body>
-    <table>
-      <tr>
-        <td><label for="mssv">MSSV:</label></td>
-        <td><input id="mssv" class="custom-input" type="text" /></td>
-      </tr>
-      <tr>
-        <td><label for="pass">Mật khẩu:</label></td>
-        <td><input id="pass" class="custom-input" type="password" /></td>
-      </tr>
-    </table>
+    <button id="options" data-id="options" type="button">
+      <i class="fa fa-gear"></i>
+    </button>
+    <header>
+      <table>
+        <tr>
+          <td><label for="mssv">MSSV:</label></td>
+          <td><input id="mssv" class="custom-input" type="text" /></td>
+        </tr>
+        <tr>
+          <td><label for="pass">Mật khẩu:</label></td>
+          <td><input id="pass" class="custom-input" type="password" /></td>
+        </tr>
+      </table>
+
+      <p class="fact">
+        <i class="fa fa-info">
+          Mọi thông tin người dùng nhập vào chỉ được lưu trên trình duyệt</i
+        >
+      </p>
+    </header>
 
     <hr />
 
-    <button id="home" data-id="home" class="btn" type="button">
-      <i class="fa fa-home"></i>Trang chủ
-    </button>
-
     <div class="btn-group">
-      <button data-id="notification" class="btn main" type="button">
-        <i class="fa fa-bell"></i>Thông báo
+      <button id="home" data-id="home" class="btn" type="button">
+        <i class="fa fa-home"></i>
+        <p>Trang chủ</p>
       </button>
-      <button data-id="schedule" class="btn main" type="button">
-        <i class="fa fa-calendar"></i>Thời khoá biểu
+
+      <button data-id="notification" data-color="red" class="btn" type="button">
+        <i class="fa fa-bell"></i>
+        <p>Thông báo</p>
       </button>
-      <button data-id="score" class="btn main" type="button">
-        <i class="fa fa-check"></i>Kết quả học tập
+
+      <button data-id="survey" class="btn" type="button">
+        <i class="fa fa-check-square-o"></i>
+        <p>Survey</p>
       </button>
-      <button data-id="elearning" class="btn main" type="button">
-        <i class="fa fa-book"></i>Elearning
+
+      <button data-id="info" class="btn" type="button">
+        <i class="fa fa-info-circle"></i>
+        <p>Thông tin sinh viên</p>
       </button>
-      <button data-id="train" class="btn ghost" type="button">
-        <i class="fa fa-trophy"></i>Điểm rèn luyện
+
+      <button data-id="education" class="btn" type="button">
+        <i class="fa fa-book"></i>
+        <p>Đào tạo</p>
       </button>
-      <button data-id="exam" class="btn ghost" type="button">
-        <i class="fa fa-pencil-square-o"></i>Lịch thi
+
+      <div class="education-child">
+        <button data-id="registration" class="btn" type="button">
+          <i class="fa fa-calendar-check-o"></i>
+          <p>ĐKMH</p>
+        </button>
+
+        <button data-id="schedule" class="btn" type="button">
+          <i class="fa fa-calendar"></i>
+          <p>TKB</p>
+        </button>
+
+        <button data-id="exam" class="btn" type="button">
+          <i class="fa fa-pencil-square-o"></i>
+          <p>Lịch thi</p>
+        </button>
+        <button data-id="map" class="btn" type="button">
+          <i class="fa fa-mortar-board"></i>
+          <p>SĐĐT</p>
+        </button>
+      </div>
+
+      <button data-id="tuition" class="btn" type="button">
+        <i class="fa fa-money"></i>
+        <p>Học phí</p>
       </button>
-      <button data-id="map" class="btn ghost" type="button">
-        <i class="fa fa-mortar-board"></i>Sơ đồ đào tạo
+
+      <button data-id="elearning" class="btn" type="button">
+        <i class="fa fa-folder-open"></i>
+        <p>Elearning</p>
       </button>
-      <button data-id="tuition" class="btn ghost" type="button">
-        <i class="fa fa-money"></i>Học phí
+
+      <button data-id="new-elearning" class="btn" type="button">
+        <i class="fa fa-laptop"></i>
+        <p>New Elearning</p>
+      </button>
+
+      <button data-id="elearning-skill" class="btn" type="button">
+        <i class="fa fa-lightbulb-o"></i>
+        <p>Elearning Kỹ Năng</p>
+      </button>
+
+      <button data-id="score" class="btn" type="button">
+        <i class="fa fa-check"></i>
+        <p>Kết quả học tập</p>
+      </button>
+
+      <button data-id="student-cert" class="btn" type="button">
+        <i class="fa fa-user-circle-o"></i>
+        <p>Chứng nhận SV</p>
+      </button>
+
+      <button data-id="apply-online" class="btn" type="button">
+        <i class="fa fa-globe"></i>
+        <p>Nộp đơn trực truyến</p>
+      </button>
+
+      <button data-id="train" class="btn" type="button">
+        <i class="fa fa-trophy"></i>
+        <p>Điểm rèn luyện</p>
+      </button>
+
+      <button data-id="rule" class="btn" type="button">
+        <i class="fa fa-exclamation-triangle"></i>
+        <p>Qui chế - Quy định</p>
+      </button>
+
+      <button data-id="sport-club" class="btn" type="button">
+        <i class="fa fa-soccer-ball-o"></i>
+        <p>Sport club</p>
       </button>
     </div>
-
-    <button id="options" data-id="options" class="btn" type="button">
-      <i class="fa fa-gear"></i>Cài đặt
-    </button>
 
     <script src="popup.js"></script>
   </body>
