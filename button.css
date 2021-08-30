@@ -1,0 +1,171 @@
+.btn {
+  margin: 8px 4px 0 4px;
+  flex-grow: 1;
+  border: 2px solid;
+  border-radius: 4px;
+  padding: 8px 0;
+  cursor: pointer;
+  background-color: white;
+}
+
+.btn > i {
+  font-size: large;
+}
+
+[data-id] {
+  overflow: hidden;
+  background-color: white;
+}
+[data-id]:hover {
+  filter: brightness(90%);
+}
+[data-id] p {
+  color: white;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 4px 16px;
+}
+
+/* ===== notification =====*/
+[data-id="notification"] {
+  color: #00579a;
+}
+[data-id="notification"] p {
+  background-color: #00579a;
+}
+
+/* ===== survey =====*/
+[data-id="survey"] {
+  color: #0668b1;
+}
+[data-id="survey"] p {
+  background-color: #0668b1;
+}
+
+/* ===== info =====*/
+[data-id="info"] {
+  color: #8a2110;
+}
+[data-id="info"] p {
+  background-color: #8a2110;
+}
+
+/* ===== education =====*/
+[data-id="education"] {
+  color: #35aeab;
+}
+[data-id="education"] p {
+  background-color: #35aeab;
+}
+
+/* ===== registration =====*/
+[data-id="registration"] {
+  color: #967a60;
+}
+[data-id="registration"] p {
+  background-color: #967a60;
+}
+
+/* ===== schedule =====*/
+[data-id="schedule"] {
+  color: #823a82;
+}
+[data-id="schedule"] p {
+  background-color: #823a82;
+}
+
+/* ===== exam =====*/
+[data-id="exam"] {
+  color: #3483cc;
+}
+[data-id="exam"] p {
+  background-color: #3483cc;
+}
+
+/* ===== map =====*/
+[data-id="map"] {
+  color: #118dd0;
+}
+[data-id="map"] p {
+  background-color: #118dd0;
+}
+
+/* ===== tuition =====*/
+[data-id="tuition"] {
+  color: #225615;
+}
+[data-id="tuition"] p {
+  background-color: #225615;
+}
+
+/* ===== elearning =====*/
+[data-id="elearning"] {
+  color: #e95022;
+}
+[data-id="elearning"] p {
+  background-color: #e95022;
+}
+
+/* ===== new-elearning =====*/
+[data-id="new-elearning"] {
+  color: #d73a33;
+}
+[data-id="new-elearning"] p {
+  background-color: #d73a33;
+}
+
+/* ===== elearning-skill =====*/
+[data-id="elearning-skill"] {
+  color: #46bda1;
+}
+[data-id="elearning-skill"] p {
+  background-color: #46bda1;
+}
+
+/* ===== score =====*/
+[data-id="score"] {
+  color: #cd351d;
+}
+[data-id="score"] p {
+  background-color: #cd351d;
+}
+
+/* ===== studen-cert =====*/
+[data-id="student-cert"] {
+  color: #319998;
+}
+[data-id="student-cert"] p {
+  background-color: #319998;
+}
+
+/* ===== apply-online =====*/
+[data-id="apply-online"] {
+  color: #a0a2a1;
+}
+[data-id="apply-online"] p {
+  background-color: #a0a2a1;
+}
+
+/* ===== train =====*/
+[data-id="train"] {
+  color: #c2321b;
+}
+[data-id="train"] p {
+  background-color: #c2321b;
+}
+
+/* ===== rule =====*/
+[data-id="rule"] {
+  color: #febd2a;
+}
+[data-id="rule"] p {
+  background-color: #febd2a;
+}
+
+/* ===== sport-club =====*/
+[data-id="sport-club"] {
+  color: #0061a5;
+}
+[data-id="sport-club"] p {
+  background-color: #0061a5;
+}
