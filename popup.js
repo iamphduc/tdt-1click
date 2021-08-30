@@ -11,7 +11,13 @@ chrome.storage.sync.get("loginData", (data) => {
 });
 
 // ===== BUTTON RENDER ===== //
-const defaultButtons = ["notification", "schedule", "score", "elearning"];
+const defaultButtons = [
+  "notification",
+  "education",
+  "schedule",
+  "score",
+  "new-elearning",
+];
 
 chrome.storage.sync.get("quickAccessButtons", (res) => {
   let data;
@@ -24,12 +30,14 @@ chrome.storage.sync.get("quickAccessButtons", (res) => {
 });
 
 function render(quickAccessButtons) {
-  document.querySelectorAll(".main, .ghost").forEach((btn) => {
-    const id = btn.getAttribute("data-id");
-    const isSelected = quickAccessButtons.find((e) => e === id);
+  document
+    .querySelectorAll(".btn-group .btn[data-id]:not(#home)")
+    .forEach((btn) => {
+      const id = btn.getAttribute("data-id");
+      const isSelected = quickAccessButtons.find((e) => e === id);
 
-    if (!isSelected) btn.classList.add("hidden");
-  });
+      if (!isSelected) btn.classList.add("hidden");
+    });
 }
 
 // ===== BUTTON CLICK ===== //
