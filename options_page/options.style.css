@@ -22,53 +22,46 @@ body {
 }
 
 .btn {
-  display: flex;
-  border: 2px solid;
-  border-radius: 4px;
-  padding: 8px 16px;
-  cursor: pointer;
-  transition: 0.2s ease;
+  padding: 8px 0px 0px 0px;
 }
 
-.main {
-  background-color: rgb(25, 140, 255);
-  border-color: rgb(25, 140, 255);
-  color: white;
-}
-
-.ghost {
-  background-color: white;
-  border: 2px solid rgb(25, 140, 255);
-  color: rgb(25, 140, 255);
-}
-
-.btn:active {
-  background-color: rgb(120, 185, 250);
-  border-color: rgb(120, 185, 250);
-  transform: translateY(1.5px);
-}
-
-.btn--not-active {
+.btn--disabled {
   background-color: #ccc;
   border-color: #ccc;
   color: white;
 }
 
-.btn > i {
-  margin-right: 30px;
-  font-size: large;
+.btn--disabled > p {
+  background-color: white;
+  color: #ccc;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 4px 16px;
 }
 
-.div-center-items {
+.div-flex-end {
   display: flex;
   justify-content: flex-end;
 }
 
 #save {
+  all: revert;
   width: 20%;
+  display: flex;
+  background-color: #33be54;
+  border: 2px solid #33be54;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
   margin-top: 2rem;
   justify-content: center;
-  background-color: #33be54;
-  border-color: #33be54;
   color: white;
+}
+
+#save:hover {
+  filter: brightness(90%);
+}
+
+#save:active {
+  transform: translateY(1.5px);
 }
