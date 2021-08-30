@@ -19,14 +19,17 @@ const defaultButtons = [
   "new-elearning",
 ];
 
-chrome.storage.sync.get("quickAccessButtons", (res) => {
-  let data;
-  if (!res.quickAccessButtons) {
-    data = defaultButtons;
-    chrome.storage.sync.set({ quickAccessButtons: defaultButtons });
-  } else data = res.quickAccessButtons;
+chrome.storage.sync.get("setting", ({ setting }) => {
+  const tmpSetting = setting ? setting : {};
+  if (!setting?.quickAccessButtons) {
+    tmpSetting.quickAccessButtons = defaultButtons;
+  }
+  tmpSetting.layout = setting?.layout ? setting?.layout : "layout-3col";
+  document.querySelector(".btn-group").classList.add(tmpSetting.layout);
 
-  render(data);
+  chrome.storage.sync.set({ setting: tmpSetting });
+  console.log(tmpSetting);
+  render(tmpSetting.quickAccessButtons);
 });
 
 function render(quickAccessButtons) {

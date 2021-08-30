@@ -10,27 +10,30 @@ table {
 }
 
 header {
-  display: flex;
+  display: grid;
+  grid-template-columns: 170px 2fr 1fr;
+  gap: 8px;
+  place-items: center;
 }
-
-p {
-  margin: 4px 0 0 0;
+.form > div {
+  position: relative;
+  color: #333;
 }
-
-::-webkit-scrollbar {
-  width: 0;
-}
-
-.hidden {
-  display: none !important;
+.form > div > i {
+  position: absolute;
+  top: 35%;
+  left: 20px;
 }
 
 .custom-input {
+  width: 160px;
+  font-size: large;
   border: 2px solid #aaa;
+  color: #333;
   border-radius: 4px;
-  margin: 4px 0px 8px 0px;
+  margin: 4px 0px 8px 8px;
   outline: none;
-  padding: 4px;
+  padding: 4px 28px;
   box-sizing: border-box;
   transition: 0.3s;
 }
@@ -41,26 +44,23 @@ p {
 }
 
 .fact {
-  margin: 8px;
+  font-size: 14px;
+  text-align: center;
 }
 
-.btn-group {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.btn {
-  margin: 8px 4px 0 4px;
-  flex-grow: 1;
+#options {
+  float: right;
+  font-size: 48px;
+  padding: 0 10px;
+  background-color: white;
   border: 2px solid;
   border-radius: 4px;
-  padding: 8px 0;
+  color: #555;
   cursor: pointer;
-  background-color: white;
 }
 
-.btn > i {
-  font-size: large;
+#options:hover {
+  filter: brightness(90%);
 }
 
 #home {
@@ -80,19 +80,47 @@ p {
   transform: translateY(1.5px);
 }
 
-[data-id] {
+p {
+  margin: 4px 0 0 0;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.btn {
+  margin: 8px 4px 0 4px;
   overflow: hidden;
+  flex-grow: 1;
+  border: 2px solid;
+  box-shadow: 0 0 0 1px inset;
+  border-radius: 4px;
+  padding: 8px 0 0 0;
+  cursor: pointer;
   background-color: white;
 }
-[data-id]:hover {
+.btn:hover {
   filter: brightness(90%);
 }
-[data-id] p {
+.btn > i {
+  font-size: large;
+}
+.btn p {
   color: white;
   white-space: nowrap;
   text-overflow: ellipsis;
   padding: 4px 16px;
 }
+
 /* //////////////////// */
 [data-id="notification"] {
   color: #00579a;
@@ -115,7 +143,7 @@ p {
   background-color: #8a2110;
 }
 
-/* Education and it's children */
+/* Education and its children */
 [data-id="education"] {
   color: #35aeab;
 }
@@ -124,22 +152,24 @@ p {
 }
 .education-child {
   width: 100%;
+  max-height: 0;
   overflow: hidden;
   background-color: #dbefff;
-  height: 0;
-  transition: 0.2s ease;
+  opacity: 0;
+  border-top: 1px solid white;
   display: grid;
+  gap: 4px;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
+  transition: 0.2s ease 0.1s;
 }
-.education-child > * {
-  margin: 0 8px;
-  /* height: 60px; */
-}
+
 [data-id="education"]:hover + .education-child,
 .education-child:hover {
   border-top: 8px solid white;
-  height: 160px;
+  opacity: 1;
+  padding: 8px;
+  max-height: 200px;
 }
 [data-id="registration"] {
   color: #967a60;
@@ -168,8 +198,8 @@ p {
 [data-id="map"] p {
   background-color: #118dd0;
 }
+/* End - education and its children */
 
-/* end - education and it's children */
 [data-id="tuition"] {
   color: #225615;
 }
@@ -241,15 +271,25 @@ p {
 }
 /* //////////////////////////// */
 
-#options {
-  float: right;
-  font-size: large;
-  background-color: white;
-  border: none;
-  color: #555;
-  cursor: pointer;
+/* LAYOUT */
+
+.btn-group.layout-auto {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-#options:hover {
-  background-color: unset;
+.layout-3col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.layout-3col .education-child {
+  grid-column: 1/4;
+}
+
+.layout-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.layout-2col .education-child {
+  grid-column: 1/3;
 }

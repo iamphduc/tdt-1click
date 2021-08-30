@@ -1,32 +1,29 @@
 .btn {
   margin: 8px 4px 0 4px;
+  overflow: hidden;
   flex-grow: 1;
   border: 2px solid;
+  box-shadow: 0 0 0 1px inset;
   border-radius: 4px;
-  padding: 8px 0;
+  padding: 8px 0 0 0;
   cursor: pointer;
   background-color: white;
 }
-
+.btn:hover {
+  filter: brightness(90%);
+}
 .btn > i {
   font-size: large;
 }
-
-[data-id] {
-  overflow: hidden;
-  background-color: white;
-}
-[data-id]:hover {
-  filter: brightness(90%);
-}
-[data-id] p {
+.btn p {
   color: white;
   white-space: nowrap;
   text-overflow: ellipsis;
   padding: 4px 16px;
+  margin-bottom: 0;
 }
 
-/* ===== notification =====*/
+/* //////////////////// */
 [data-id="notification"] {
   color: #00579a;
 }
@@ -34,7 +31,6 @@
   background-color: #00579a;
 }
 
-/* ===== survey =====*/
 [data-id="survey"] {
   color: #0668b1;
 }
@@ -42,7 +38,6 @@
   background-color: #0668b1;
 }
 
-/* ===== info =====*/
 [data-id="info"] {
   color: #8a2110;
 }
@@ -50,15 +45,34 @@
   background-color: #8a2110;
 }
 
-/* ===== education =====*/
+/* Education and its children */
 [data-id="education"] {
   color: #35aeab;
 }
 [data-id="education"] p {
   background-color: #35aeab;
 }
+.education-child {
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  background-color: #dbefff;
+  opacity: 0;
+  border-top: 1px solid white;
+  display: grid;
+  gap: 4px;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  transition: 0.2s ease 0.1s;
+}
 
-/* ===== registration =====*/
+[data-id="education"]:hover + .education-child,
+.education-child:hover {
+  border-top: 8px solid white;
+  opacity: 1;
+  padding: 8px;
+  max-height: 200px;
+}
 [data-id="registration"] {
   color: #967a60;
 }
@@ -66,7 +80,6 @@
   background-color: #967a60;
 }
 
-/* ===== schedule =====*/
 [data-id="schedule"] {
   color: #823a82;
 }
@@ -74,7 +87,6 @@
   background-color: #823a82;
 }
 
-/* ===== exam =====*/
 [data-id="exam"] {
   color: #3483cc;
 }
@@ -82,15 +94,14 @@
   background-color: #3483cc;
 }
 
-/* ===== map =====*/
 [data-id="map"] {
   color: #118dd0;
 }
 [data-id="map"] p {
   background-color: #118dd0;
 }
+/* End - education and its children */
 
-/* ===== tuition =====*/
 [data-id="tuition"] {
   color: #225615;
 }
@@ -98,7 +109,6 @@
   background-color: #225615;
 }
 
-/* ===== elearning =====*/
 [data-id="elearning"] {
   color: #e95022;
 }
@@ -106,7 +116,6 @@
   background-color: #e95022;
 }
 
-/* ===== new-elearning =====*/
 [data-id="new-elearning"] {
   color: #d73a33;
 }
@@ -114,7 +123,6 @@
   background-color: #d73a33;
 }
 
-/* ===== elearning-skill =====*/
 [data-id="elearning-skill"] {
   color: #46bda1;
 }
@@ -122,7 +130,6 @@
   background-color: #46bda1;
 }
 
-/* ===== score =====*/
 [data-id="score"] {
   color: #cd351d;
 }
@@ -130,7 +137,6 @@
   background-color: #cd351d;
 }
 
-/* ===== studen-cert =====*/
 [data-id="student-cert"] {
   color: #319998;
 }
@@ -138,7 +144,6 @@
   background-color: #319998;
 }
 
-/* ===== apply-online =====*/
 [data-id="apply-online"] {
   color: #a0a2a1;
 }
@@ -146,7 +151,6 @@
   background-color: #a0a2a1;
 }
 
-/* ===== train =====*/
 [data-id="train"] {
   color: #c2321b;
 }
@@ -154,7 +158,6 @@
   background-color: #c2321b;
 }
 
-/* ===== rule =====*/
 [data-id="rule"] {
   color: #febd2a;
 }
@@ -162,7 +165,6 @@
   background-color: #febd2a;
 }
 
-/* ===== sport-club =====*/
 [data-id="sport-club"] {
   color: #0061a5;
 }

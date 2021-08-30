@@ -1,9 +1,13 @@
 const setting = {
   quickAccessButtons: [],
+  layout: "layout-3col",
 };
 
 const saveBtn = document.getElementById("save");
 const btnGroup = document.querySelectorAll(".btn[data-id]");
+const layoutRadios = document.querySelectorAll(`[name="layout"]`);
+
+document.querySelector(`[value="${setting.layout}"]`).click();
 
 chrome.storage.sync.get("setting", ({ setting: _setting }) => {
   setting.quickAccessButtons = Array.isArray(_setting.quickAccessButtons)
@@ -58,6 +62,12 @@ function initEventListeners() {
         }
       }
       render();
+    });
+  });
+
+  layoutRadios.forEach((rad) => {
+    rad.addEventListener("click", (e) => {
+      setting.layout = e.target.getAttribute("value");
     });
   });
 }

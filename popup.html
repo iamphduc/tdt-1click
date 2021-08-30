@@ -11,26 +11,27 @@
     <link rel="stylesheet" href="popup.style.css" />
   </head>
   <body>
-    <button id="options" data-id="options" type="button">
-      <i class="fa fa-gear"></i>
-    </button>
     <header>
-      <table>
-        <tr>
-          <td><label for="mssv">MSSV:</label></td>
-          <td><input id="mssv" class="custom-input" type="text" /></td>
-        </tr>
-        <tr>
-          <td><label for="pass">Mật khẩu:</label></td>
-          <td><input id="pass" class="custom-input" type="password" /></td>
-        </tr>
-      </table>
+      <div class="form">
+        <div>
+          <input id="mssv" class="custom-input" type="text" />
+          <i class="fa fa-user"></i>
+        </div>
+        <div>
+          <input id="pass" class="custom-input" type="password" />
+          <i class="fa fa-lock"></i>
+        </div>
+      </div>
 
       <p class="fact">
         <i class="fa fa-info">
           Mọi thông tin người dùng nhập vào chỉ được lưu trên trình duyệt</i
         >
       </p>
+
+      <button id="options" data-id="options" type="button">
+        <i class="fa fa-gear"></i>
+      </button>
     </header>
 
     <hr />
