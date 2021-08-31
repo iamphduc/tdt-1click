@@ -11,20 +11,19 @@ chrome.storage.sync.get("loginData", (data) => {
 });
 
 // ===== BUTTON RENDER ===== //
-const defaultButtons = [
-  "notification",
-  "education",
-  "schedule",
-  "score",
-  "new-elearning",
-];
+const disabledButtons = [];
+let defaultButtons = [];
+document.querySelectorAll("[data-id]").forEach((btn) => {
+  defaultButtons.push(btn.getAttribute("data-id"));
+});
+const defaultLayout = "layout-3col";
 
 chrome.storage.sync.get("setting", ({ setting }) => {
   const tmpSetting = setting ? setting : {};
   if (!setting?.quickAccessButtons) {
     tmpSetting.quickAccessButtons = defaultButtons;
   }
-  tmpSetting.layout = setting?.layout ? setting?.layout : "layout-3col";
+  tmpSetting.layout = setting?.layout ? setting?.layout : defaultLayout;
   document.querySelector(".btn-group").classList.add(tmpSetting.layout);
 
   chrome.storage.sync.set({ setting: tmpSetting });
