@@ -13,25 +13,28 @@
   <body>
     <header>
       <div class="form">
-        <div>
-          <input id="mssv" class="custom-input" type="text" />
-          <i class="fa fa-user"></i>
+        <div class="form__group">
+          <input type="text" class="form__field" placeholder="MSSV" id="mssv" />
+          <label for="mssv" class="form__label">MSSV</label>
         </div>
-        <div>
-          <input id="pass" class="custom-input" type="password" />
-          <i class="fa fa-lock"></i>
+        <div class="form__group">
+          <input
+            type="password"
+            class="form__field"
+            placeholder="Mật khẩu"
+            id="pass"
+          />
+          <label for="pass" class="form__label">Mật khẩu</label>
         </div>
       </div>
-
-      <p class="fact">
-        <i class="fa fa-info">
-          Mọi thông tin người dùng nhập vào chỉ được lưu trên trình duyệt</i
-        >
-      </p>
 
       <button id="options" type="button">
         <i class="fa fa-gear"></i>
       </button>
+
+      <p class="fact">
+        <i class="fa fa-info"> Thông tin người dùng chỉ lưu trên trình duyệt</i>
+      </p>
     </header>
 
     <hr />
