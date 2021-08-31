@@ -11,12 +11,16 @@ chrome.storage.sync.get("loginData", (data) => {
 });
 
 // ===== BUTTON RENDER ===== //
+const defaultLayout = "layout-3col";
 const disabledButtons = [];
 let defaultButtons = [];
 document.querySelectorAll("[data-id]").forEach((btn) => {
-  defaultButtons.push(btn.getAttribute("data-id"));
+  const id = btn.getAttribute("data-id");
+
+  if (disabledButtons.includes(id)) return;
+
+  defaultButtons.push(id);
 });
-const defaultLayout = "layout-3col";
 
 chrome.storage.sync.get("setting", ({ setting }) => {
   const tmpSetting = setting ? setting : {};
