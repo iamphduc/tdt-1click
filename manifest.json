@@ -1,7 +1,7 @@
 {
   "name": "1Click TDT",
   "description": "A simple extension that make your student life better :D",
-  "version": "1.1",
+  "version": "1.2",
   "manifest_version": 3,
   "background": {
     "service_worker": "background.js"
