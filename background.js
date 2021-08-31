@@ -20,7 +20,7 @@ const SCHOOL_URL = {
   "elearning-skill": "https://elearning-ability.tdtu.edu.vn/Home",
   "student-cert": "https://cnsv.tdtu.edu.vn/",
   "apply-online": "http://nopdon.tdtu.edu.vn/",
-  rule: "https://quychehocvu.tdtu.edu.vn/QuyChe/Index",
+  rule: "https://quychehocvu.tdtu.edu.vn/QuyChe",
   "sport-club": "http://sport.tdtu.edu.vn/",
   // tools
 };
