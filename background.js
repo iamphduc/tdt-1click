@@ -3,7 +3,7 @@ const loginURL = "https://stdportal.tdtu.edu.vn/Login/Index";
 const SCHOOL_URL = {
   // basic-theme
   home: "https://stdportal.tdtu.edu.vn",
-  notification: "https://studentnews.tdtu.edu.vn/Home/Index",
+  notification: "https://studentnews.tdtu.edu.vn/",
   education: "https://old-stdportal.tdtu.edu.vn/dkmh-main",
   schedule: "https://lichhoc-lichthi.tdtu.edu.vn/tkb2.aspx",
   score: "https://ketquahoctap.tdtu.edu.vn/home/diemhocky",
@@ -22,6 +22,7 @@ const SCHOOL_URL = {
   "apply-online": "http://nopdon.tdtu.edu.vn/",
   rule: "https://quychehocvu.tdtu.edu.vn/QuyChe/Index",
   "sport-club": "http://sport.tdtu.edu.vn/",
+  // tools
 };
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -52,7 +53,20 @@ function openPage(url) {
         } else {
           // chrome.tabs.create({ url });
           // chrome.tabs.remove(tabInfor.id);
-          chrome.tabs.update(tabInfor.id, { url });
+
+          if (!tabInfor.url.includes(url)) {
+            chrome.tabs.update(tabInfor.id, { url });
+            chrome.tabs.onUpdated.addListener(handler);
+          }
+
+          if (tabInfor.url === SCHOOL_URL.notification) {
+            chrome.scripting.executeScript({
+              target: { tabId: tab.id },
+              func: () => {
+                document.getElementById("form_seeall").submit();
+              },
+            });
+          }
         }
       }
     }
