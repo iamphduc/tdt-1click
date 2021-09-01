@@ -1,31 +1,28 @@
-const setting = {
+let setting = {
   quickAccessButtons: [],
   layout: "layout-3col",
 };
 
-const saveBtn = document.getElementById("save");
-const btnGroup = document.querySelectorAll(".btn[data-id]");
-const layoutRadios = document.querySelectorAll(`[name="layout"]`);
-
-document.querySelector(`[value="${setting.layout}"]`).click();
-
+// ===== INIT SETTING ===== //
 chrome.storage.sync.get("setting", ({ setting: _setting }) => {
-  setting.quickAccessButtons = Array.isArray(_setting.quickAccessButtons)
-    ? _setting.quickAccessButtons
-    : [];
+  setting = _setting || setting;
+
+  document.querySelector(`[value="${setting.layout}"]`).click();
   render();
   initEventListeners();
 });
+// ===== INIT SETTING ===== //
 
 const educationChildren = ["registration", "schedule", "exam", "map"];
 
+const btnGroup = document.querySelectorAll(".btn[data-id]");
 function render() {
   btnGroup.forEach((btn) => {
     const { quickAccessButtons } = setting;
     const id = btn.getAttribute("data-id");
-    const isSelected = quickAccessButtons.includes(id);
+    const selected = quickAccessButtons.includes(id);
 
-    if (isSelected) btn.classList.remove("btn--disabled");
+    if (selected) btn.classList.remove("btn--disabled");
     else btn.classList.add("btn--disabled");
   });
 }
@@ -34,23 +31,22 @@ function initEventListeners() {
   btnGroup.forEach((btn) => {
     const id = btn.getAttribute("data-id");
     btn.addEventListener("click", () => {
-      const isSelected = setting.quickAccessButtons.includes(id);
+      const selected = setting.quickAccessButtons.includes(id);
 
-      if (isSelected)
+      if (selected)
         setting.quickAccessButtons = setting.quickAccessButtons.filter(
           (e) => e !== id
         );
       else setting.quickAccessButtons.push(id);
-      console.log(setting);
       // click "education" button to enable/disable all children
       if (id === "education") {
-        if (!isSelected) selectEducationChildren(true);
+        if (!selected) selectEducationChildren(true);
         else selectEducationChildren(false);
       }
 
       if (educationChildren.includes(id)) {
         // click children to enable "education" button
-        if (!isSelected) setting.quickAccessButtons.push("education");
+        if (!selected) setting.quickAccessButtons.push("education");
         // disable if there is no education child
         else {
           const remain = educationChildren.filter((e) => isEnabled(e));
@@ -61,10 +57,12 @@ function initEventListeners() {
             );
         }
       }
+
       render();
     });
   });
 
+  const layoutRadios = document.querySelectorAll(`[name="layout"]`);
   layoutRadios.forEach((rad) => {
     rad.addEventListener("click", (e) => {
       setting.layout = e.target.getAttribute("value");
@@ -88,6 +86,7 @@ function isEnabled(button) {
   return setting.quickAccessButtons.includes(button);
 }
 
+const saveBtn = document.getElementById("save");
 saveBtn.addEventListener("click", async () => {
   await chrome.storage.sync.set({
     setting: setting,
