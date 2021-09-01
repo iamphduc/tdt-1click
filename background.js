@@ -20,7 +20,7 @@ const SCHOOL_URL = {
   "elearning-skill": "https://elearning-ability.tdtu.edu.vn/Home",
   "student-cert": "https://cnsv.tdtu.edu.vn/",
   "apply-online": "http://nopdon.tdtu.edu.vn/",
-  rule: "https://quychehocvu.tdtu.edu.vn/QuyChe",
+  rule: "https://quychehocvu.tdtu.edu.vn/QuyChe/Index",
   "sport-club": "http://sport.tdtu.edu.vn/",
   // tools
 };
@@ -53,20 +53,7 @@ function openPage(url) {
         } else {
           // chrome.tabs.create({ url });
           // chrome.tabs.remove(tabInfor.id);
-
-          if (!tabInfor.url.includes(url)) {
-            chrome.tabs.update(tabInfor.id, { url });
-            chrome.tabs.onUpdated.addListener(handler);
-          }
-
-          if (tabInfor.url === SCHOOL_URL.notification) {
-            chrome.scripting.executeScript({
-              target: { tabId: tab.id },
-              func: () => {
-                document.getElementById("form_seeall").submit();
-              },
-            });
-          }
+          chrome.tabs.update(tabInfor.id, { url });
         }
       }
     }
