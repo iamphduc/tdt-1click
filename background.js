@@ -1,4 +1,4 @@
-const loginURL = "https://stdportal.tdtu.edu.vn/Login/Index";
+const LOGIN_URL = "https://stdportal.tdtu.edu.vn/Login/Index";
 
 const SCHOOL_URL = {
   // basic-theme
@@ -26,12 +26,6 @@ const SCHOOL_URL = {
 };
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request == "optionsClicked") {
-    if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage();
-    else window.open(chrome.runtime.getURL("options.html"));
-    sendResponse();
-  }
-
   if (request.message == "btnClicked") {
     openPage(SCHOOL_URL[request.type]);
     sendResponse();
@@ -47,11 +41,11 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 function openPage(url) {
-  chrome.tabs.create({ url: loginURL, active: true }, (tab) => {
+  chrome.tabs.create({ url: LOGIN_URL, active: true }, (tab) => {
     function handler(tabId, changeInfo, tabInfor) {
       if (tabId === tab.id && changeInfo.status === "complete") {
         chrome.tabs.onUpdated.removeListener(handler);
-        if (tabInfor.url.includes(loginURL)) {
+        if (tabInfor.url.includes(LOGIN_URL)) {
           chrome.scripting.executeScript({
             target: { tabId: tab.id },
             files: ["content-script.js"],
