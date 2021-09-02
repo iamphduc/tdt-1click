@@ -23,5 +23,12 @@
 		"32": "/images/1_click_32.png",
 		"48": "/images/1_click_48.png",
 		"128": "/images/1_click_128.png"
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://studentnews.tdtu.edu.vn/ThongBao/Filter"],
+      "js": ["/mark_as_read/markAsRead.js"],
+      "css": ["/mark_as_read/mar.css"]
+    }
+  ]
 }
