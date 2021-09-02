@@ -61,3 +61,21 @@ function openPage(url) {
     chrome.tabs.onUpdated.addListener(handler);
   });
 }
+
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tabInfor) => {
+  const NEW_ELEARNNG_URL = "https://elearning.tdtu.edu.vn/";
+  if (
+    tabInfor.url.includes(NEW_ELEARNNG_URL) &&
+    changeInfo.status === "complete"
+  ) {
+    chrome.storage.sync.get("setting", ({ setting }) => {
+      const enhanceCSS_NE = setting?.enhanceCSS_NE || false;
+      if (enhanceCSS_NE) {
+        chrome.scripting.insertCSS({
+          target: { tabId: tabId },
+          files: ["/css_injection/new_elearning.css"],
+        });
+      }
+    });
+  }
+});

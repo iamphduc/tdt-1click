@@ -1,13 +1,21 @@
 let setting = {
   quickAccessButtons: [],
   layout: "layout-3col",
+  enhanceCSS_NE: false,
 };
+
+const enhanceCSS_NE_input = document.getElementById("enhanceCSS-ne-input");
+enhanceCSS_NE_input.addEventListener("click", () => {
+  setting.enhanceCSS_NE = enhanceCSS_NE_input.checked;
+  console.log(enhanceCSS_NE_input.checked);
+});
 
 // ===== INIT SETTING ===== //
 chrome.storage.sync.get("setting", ({ setting: _setting }) => {
   setting = _setting || setting;
 
   document.querySelector(`[value="${setting.layout}"]`).click();
+  enhanceCSS_NE_input.checked = setting.enhanceCSS_NE;
   render();
   initEventListeners();
 });
