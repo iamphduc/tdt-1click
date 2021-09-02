@@ -163,3 +163,20 @@ p {
 .layout-2col .education-child {
   grid-column: 1/3;
 }
+
+.dashed-dance {
+  --dashed-color: black;
+  background: linear-gradient(90deg, var(--dashed-color) 50%, transparent 50%),
+    linear-gradient(90deg, var(--dashed-color) 50%, transparent 50%),
+    linear-gradient(0deg, var(--dashed-color) 50%, transparent 50%),
+    linear-gradient(0deg, var(--dashed-color) 50%, transparent 50%);
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+  background-size: 15px 4px, 15px 4px, 4px 15px, 4px 15px;
+  background-position: 0% 0%, 100% 100%, 0% 100%, 100% 0px;
+  animation: border-dance 2s infinite linear;
+}
+@keyframes border-dance {
+  to {
+    background-position: 100% 0%, 0% 100%, 0% 0%, 100% 100%;
+  }
+}

@@ -12,7 +12,14 @@ chrome.storage.sync.get("loginData", (data) => {
 
 // ===== BUTTON RENDER ===== //
 const defaultLayout = "layout-3col";
-const disabledButtons = [];
+const disabledButtons = [
+  "survey",
+  "elearning",
+  "student-cert",
+  "apply-online",
+  "rule",
+  "sport-club",
+];
 let defaultButtons = [];
 document.querySelectorAll("[data-id]").forEach((btn) => {
   const id = btn.getAttribute("data-id");
@@ -31,7 +38,7 @@ chrome.storage.sync.get("setting", ({ setting }) => {
   document.querySelector(".btn-group").classList.add(tmpSetting.layout);
 
   chrome.storage.sync.set({ setting: tmpSetting });
-  console.log(tmpSetting);
+
   openPopupTab("popup-home");
   render(tmpSetting.quickAccessButtons);
 });
@@ -98,3 +105,37 @@ tools.forEach((tool) =>
     openPopupTab(toolId);
   })
 );
+
+// ===== HIGHLIGHT BUTTON ===== //
+chrome.tabs.query({ active: true }, (tabs) => {
+  // get tab url then remove query string
+  let tabURL = new URL(tabs[0].url);
+  tabURL.search = "";
+
+  const elearningURL = {
+    "http://elearning.tdt.edu.vn/course/index.php":
+      "https://stdportal.tdtu.edu.vn/main/elearning",
+    "https://elearning.tdtu.edu.vn/course/index.php":
+      "https://stdportal.tdtu.edu.vn/main/elearningv2",
+  };
+
+  let currentURL = tabURL.toString();
+  if (currentURL in elearningURL) currentURL = elearningURL[currentURL];
+
+  const message = "highlightPage";
+  chrome.runtime.sendMessage({ message, currentURL }, (res) => {
+    if (res) {
+      setDashedDance(res);
+
+      const educationChildren = ["registration", "schedule", "exam", "map"];
+      if (educationChildren.includes(res)) setDashedDance("education");
+    }
+  });
+});
+
+function setDashedDance(id) {
+  const btn = document.querySelector(`[data-id="${id}"]`);
+  const color = window.getComputedStyle(btn).color;
+  btn.style.setProperty("--dashed-color", color);
+  btn.classList.add("dashed-dance");
+}
