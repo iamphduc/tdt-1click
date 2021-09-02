@@ -2,8 +2,7 @@ const LOGIN_URL = "https://stdportal.tdtu.edu.vn/Login/Index";
 
 const SCHOOL_URL = {
   // basic-theme
-  home: "https://stdportal.tdtu.edu.vn",
-  notification: "https://studentnews.tdtu.edu.vn/",
+  notification: "https://studentnews.tdtu.edu.vn",
   education: "https://old-stdportal.tdtu.edu.vn/dkmh-main",
   schedule: "https://lichhoc-lichthi.tdtu.edu.vn/tkb2.aspx",
   score: "https://ketquahoctap.tdtu.edu.vn/home",
@@ -11,18 +10,18 @@ const SCHOOL_URL = {
   "new-elearning": "https://stdportal.tdtu.edu.vn/main/elearningv2",
   exam: "https://lichhoc-lichthi.tdtu.edu.vn/xemlichthi.aspx",
   map: "https://learninginfo.tdtu.edu.vn/sv_xemctdt",
-  tuition: "https://hocphilephi.tdtu.edu.vn/",
+  tuition: "https://hocphilephi.tdtu.edu.vn",
   // old-portal-theme
   elearning: "https://stdportal.tdtu.edu.vn/main/elearning",
-  survey: "https://survey-beta.tdtu.edu.vn/SinhVien",
+  survey: "https://survey-beta.tdtu.edu.vn",
   info: "https://stdportal.tdtu.edu.vn/main/thongtinsinhvien",
   registration: "http://dkmh.tdt.edu.vn/default.aspx",
-  "elearning-skill": "https://elearning-ability.tdtu.edu.vn/Home",
-  "student-cert": "https://cnsv.tdtu.edu.vn/",
-  "apply-online": "http://nopdon.tdtu.edu.vn/",
+  "elearning-skill": "https://elearning-ability.tdtu.edu.vn",
+  "student-cert": "https://cnsv.tdtu.edu.vn",
+  "apply-online": "http://nopdon.tdtu.edu.vn",
   rule: "https://quychehocvu.tdtu.edu.vn/QuyChe",
-  "sport-club": "http://sport.tdtu.edu.vn/",
-  // tools
+  "sport-club": "http://sport.tdtu.edu.vn",
+  home: "https://stdportal.tdtu.edu.vn",
 };
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -33,8 +32,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   }
 
   if (request.message == "highlightPage") {
-    const id = Object.keys(SCHOOL_URL).find(
-      (key) => SCHOOL_URL[key] == request.currentURL
+    const id = Object.keys(SCHOOL_URL).find((key) =>
+      request.currentURL.includes(SCHOOL_URL[key])
     );
     sendResponse(id);
   }
