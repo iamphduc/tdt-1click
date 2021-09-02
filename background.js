@@ -6,7 +6,7 @@ const SCHOOL_URL = {
   notification: "https://studentnews.tdtu.edu.vn/",
   education: "https://old-stdportal.tdtu.edu.vn/dkmh-main",
   schedule: "https://lichhoc-lichthi.tdtu.edu.vn/tkb2.aspx",
-  score: "https://ketquahoctap.tdtu.edu.vn/home/diemhocky",
+  score: "https://ketquahoctap.tdtu.edu.vn/home",
   train: "https://stdportal.tdtu.edu.vn/main/hoatdongphongtrao",
   "new-elearning": "https://stdportal.tdtu.edu.vn/main/elearningv2",
   exam: "https://lichhoc-lichthi.tdtu.edu.vn/xemlichthi.aspx",
@@ -16,11 +16,11 @@ const SCHOOL_URL = {
   elearning: "https://stdportal.tdtu.edu.vn/main/elearning",
   survey: "https://survey-beta.tdtu.edu.vn/SinhVien",
   info: "https://stdportal.tdtu.edu.vn/main/thongtinsinhvien",
-  registration: "http://dkmh.tdt.edu.vn/",
+  registration: "http://dkmh.tdt.edu.vn/default.aspx",
   "elearning-skill": "https://elearning-ability.tdtu.edu.vn/Home",
   "student-cert": "https://cnsv.tdtu.edu.vn/",
   "apply-online": "http://nopdon.tdtu.edu.vn/",
-  rule: "https://quychehocvu.tdtu.edu.vn/QuyChe/Index",
+  rule: "https://quychehocvu.tdtu.edu.vn/QuyChe",
   "sport-club": "http://sport.tdtu.edu.vn/",
   // tools
 };
@@ -36,6 +36,13 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     openPage(SCHOOL_URL[request.type]);
     sendResponse();
     return true; // async
+  }
+
+  if (request.message == "highlightPage") {
+    const id = Object.keys(SCHOOL_URL).find(
+      (key) => SCHOOL_URL[key] == request.currentURL
+    );
+    sendResponse(id);
   }
 });
 
