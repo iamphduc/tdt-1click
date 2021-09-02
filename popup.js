@@ -1,14 +1,9 @@
 // ===== INIT & RENDER BUTTONS ===== //
 const defaultLayout = "layout-3col";
-const disabledButtons = [];
+const disabledButtons = ["survey"];
 const allButtons = [...document.querySelectorAll("[data-id]")]
-  .map((btn) => {
-    const id = btn.getAttribute("data-id");
-    return id;
-  })
-  .filter((id) => {
-    return disabledButtons.includes(id) ? false : true;
-  });
+  .map((btn) => btn.getAttribute("data-id"))
+  .filter((id) => (disabledButtons.includes(id) ? false : true));
 
 const defaultSetting = {
   quickAccessButtons: allButtons,
@@ -106,15 +101,14 @@ chrome.tabs.query({ active: true }, (tabs) => {
   let tabURL = new URL(tabs[0].url);
   tabURL.search = "";
 
-  const elearningURL = {
-    "http://elearning.tdt.edu.vn/course/index.php":
-      "https://stdportal.tdtu.edu.vn/main/elearning",
-    "https://elearning.tdtu.edu.vn/course/index.php":
-      "https://stdportal.tdtu.edu.vn/main/elearningv2",
-  };
+  const elearning = "http://elearning.tdt.edu.vn";
+  const newElearning = "https://elearning.tdtu.edu.vn";
 
   let currentURL = tabURL.toString();
-  if (currentURL in elearningURL) currentURL = elearningURL[currentURL];
+  if (currentURL.includes(elearning))
+    currentURL = "https://stdportal.tdtu.edu.vn/main/elearning";
+  else if (currentURL.includes(newElearning))
+    currentURL = "https://stdportal.tdtu.edu.vn/main/elearningv2";
 
   const message = "highlightPage";
   chrome.runtime.sendMessage({ message, currentURL }, (res) => {
