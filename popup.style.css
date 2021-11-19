@@ -60,7 +60,6 @@ header {
 }
 
 .form__field:focus {
-  padding-bottom: 6px;
   border-color: #17a2b8;
 }
 
