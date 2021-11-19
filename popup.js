@@ -3,7 +3,7 @@ const defaultLayout = "layout-3col";
 const disabledButtons = ["survey"];
 const allButtons = [...document.querySelectorAll("[data-id]")]
   .map((btn) => btn.getAttribute("data-id"))
-  .filter((id) => (disabledButtons.includes(id) ? false : true));
+  .filter((id) => !disabledButtons.includes(id));
 
 const defaultSetting = {
   quickAccessButtons: allButtons,
@@ -21,14 +21,12 @@ chrome.storage.sync.get("setting", ({ setting }) => {
 });
 
 function render(quickAccessButtons) {
-  document
-    .querySelectorAll(".btn-group .btn[data-id]:not(#home)")
-    .forEach((btn) => {
-      const id = btn.getAttribute("data-id");
-      const selected = quickAccessButtons.includes(id);
+  document.querySelectorAll(".btn-group .btn[data-id]:not(#home)").forEach((btn) => {
+    const id = btn.getAttribute("data-id");
+    const selected = quickAccessButtons.includes(id);
 
-      if (!selected) btn.classList.add("hidden");
-    });
+    if (!selected) btn.classList.add("hidden");
+  });
 }
 
 // ===== FILL MSSV AND PASSWORD ===== //
@@ -105,8 +103,7 @@ chrome.tabs.query({ active: true }, (tabs) => {
   const newElearning = "https://elearning.tdtu.edu.vn";
 
   let currentURL = tabURL.toString();
-  if (currentURL.includes(elearning))
-    currentURL = "https://stdportal.tdtu.edu.vn/main/elearning";
+  if (currentURL.includes(elearning)) currentURL = "https://stdportal.tdtu.edu.vn/main/elearning";
   else if (currentURL.includes(newElearning))
     currentURL = "https://stdportal.tdtu.edu.vn/main/elearningv2";
 
