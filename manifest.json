@@ -1,7 +1,7 @@
 {
-  "name": "1Click TDT",
-  "description": "A simple extension that make your student life better :D",
-  "version": "1.2",
+  "name": "TDT 1Click",
+  "description": "Navigate to TDTU page within 1 click",
+  "version": "1.2.1",
   "manifest_version": 3,
   "background": {
     "service_worker": "background.js"
@@ -17,12 +17,12 @@
       "128": "/images/1_click_128.png"
     }
   },
-  "options_page": "/options_page/options.html",
+  "options_page": "/options.html",
   "icons": {
     "16": "/images/1_click_16.png",
-		"32": "/images/1_click_32.png",
-		"48": "/images/1_click_48.png",
-		"128": "/images/1_click_128.png"
+    "32": "/images/1_click_32.png",
+    "48": "/images/1_click_48.png",
+    "128": "/images/1_click_128.png"
   },
   "content_scripts": [
     {

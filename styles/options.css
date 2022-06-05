@@ -1,0 +1,99 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.container {
+  color: #555;
+  background-color: white;
+  width: 90%;
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 12px 0px 32px 0px;
+}
+
+.layout {
+  margin-bottom: 24px;
+}
+
+.layout__title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.layout__radios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 120px);
+  gap: 4px;
+}
+
+.ui {
+  margin-bottom: 24px;
+}
+
+.ui__title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.ui__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quick-access {
+  margin-bottom: 16px;
+}
+
+.quick-access__title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.btn-group {
+  width: 100%;
+  display: grid;
+  gap: 4px;
+  grid-template-columns: repeat(auto-fill, 180px);
+  justify-content: space-evenly;
+}
+
+.btn--disabled {
+  background-color: #ccc;
+  border-color: #ccc;
+  color: white;
+}
+
+.btn--disabled > .btn__text {
+  background-color: white;
+  color: #ccc;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 4px 16px;
+}
+
+[data-id="save"] {
+  width: 100%;
+  background-color: #33be54;
+  border: 2px solid #33be54;
+  border-radius: 4px;
+  padding: 8px;
+  color: white;
+  font-size: 1.05rem;
+}
+
+[data-id="save"]:hover {
+  filter: brightness(90%);
+}

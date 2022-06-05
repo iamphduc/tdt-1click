@@ -1,0 +1,19 @@
+:root {
+  --primary: #17a2b8;
+
+  --bg: #fff;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.hidden {
+  display: none !important;
+}

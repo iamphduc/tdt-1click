@@ -1,0 +1,182 @@
+.btn {
+  margin: 4px;
+  overflow: hidden;
+  flex-grow: 1;
+  border: 2px solid;
+  box-shadow: 0 0 0 1px inset;
+  border-radius: 4px;
+  padding: 0px;
+  cursor: pointer;
+  background-color: var(--bg);
+}
+
+.btn:hover {
+  filter: brightness(90%);
+}
+
+.btn__icon {
+  margin: 8px 0px;
+}
+
+.btn__text {
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 4px 16px;
+}
+
+/* ===== Color ===== */
+
+[data-id="home"] {
+  background-color: orange !important;
+  border: 2px solid orange !important;
+  color: var(--bg);
+}
+
+[data-id="notification"] {
+  color: #00579a;
+}
+[data-id="notification"] .btn__text {
+  background-color: #00579a;
+}
+
+[data-id="survey"] {
+  color: #0668b1;
+}
+[data-id="survey"] .btn__text {
+  background-color: #0668b1;
+}
+
+[data-id="info"] {
+  color: #8a2110;
+}
+[data-id="info"] .btn__text {
+  background-color: #8a2110;
+}
+
+[data-id="tuition"] {
+  color: #225615;
+}
+[data-id="tuition"] .btn__text {
+  background-color: #225615;
+}
+
+[data-id="elearning"] {
+  color: #e95022;
+}
+[data-id="elearning"] .btn__text {
+  background-color: #e95022;
+}
+
+[data-id="new-elearning"] {
+  color: #d73a33;
+}
+[data-id="new-elearning"] .btn__text {
+  background-color: #d73a33;
+}
+
+[data-id="elearning-skill"] {
+  color: #46bda1;
+}
+[data-id="elearning-skill"] .btn__text {
+  background-color: #46bda1;
+}
+
+[data-id="score"] {
+  color: #cd351d;
+}
+[data-id="score"] .btn__text {
+  background-color: #cd351d;
+}
+
+[data-id="student-cert"] {
+  color: #319998;
+}
+[data-id="student-cert"] .btn__text {
+  background-color: #319998;
+}
+
+[data-id="apply-online"] {
+  color: #a0a2a1;
+}
+[data-id="apply-online"] .btn__text {
+  background-color: #a0a2a1;
+}
+
+[data-id="train"] {
+  color: #c2321b;
+}
+[data-id="train"] .btn__text {
+  background-color: #c2321b;
+}
+
+[data-id="rule"] {
+  color: #febd2a;
+}
+[data-id="rule"] .btn__text {
+  background-color: #febd2a;
+}
+
+[data-id="sport-club"] {
+  color: #0061a5;
+}
+[data-id="sport-club"] .btn__text {
+  background-color: #0061a5;
+}
+
+/* Education and its children */
+[data-id="education"] {
+  color: #35aeab;
+}
+[data-id="education"] .btn__text {
+  background-color: #35aeab;
+}
+
+.education-child {
+  width: 100%;
+  max-height: 0px;
+  opacity: 0;
+  overflow: hidden;
+  background-color: #dbefff;
+  border-top: 1px solid white;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  transition: ease 0.2s;
+}
+
+[data-id="education"]:hover + .education-child,
+.education-child:hover {
+  border-top: 12px solid white;
+  opacity: 1;
+  max-height: 200px;
+}
+
+[data-id="registration"] {
+  color: #967a60;
+}
+[data-id="registration"] .btn__text {
+  background-color: #967a60;
+}
+
+[data-id="schedule"] {
+  color: #823a82;
+}
+[data-id="schedule"] .btn__text {
+  background-color: #823a82;
+}
+
+[data-id="exam"] {
+  color: #3483cc;
+}
+[data-id="exam"] .btn__text {
+  background-color: #3483cc;
+}
+
+[data-id="map"] {
+  color: #118dd0;
+}
+[data-id="map"] .btn__text {
+  background-color: #118dd0;
+}

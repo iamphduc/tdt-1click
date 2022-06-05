@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TDT 1Click | Options</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/global.css" />
+    <link rel="stylesheet" href="/styles/button.css" />
+    <link rel="stylesheet" href="/styles/switch.css" />
+    <link rel="stylesheet" href="/styles/options.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <h1 class="page-title">TDT 1Click</h1>
+      </header>
+
+      <section class="layout">
+        <h2 class="layout__title">Bố cục</h2>
+        <div class="layout__radios">
+          <div>
+            <input type="radio" name="layout" id="layout-auto" value="layout-auto" />
+            <label for="layout-auto">Tự động</label>
+          </div>
+          <div>
+            <input type="radio" name="layout" id="layout-3col" value="layout-3col" />
+            <label for="layout-3col">3 Cột</label>
+          </div>
+          <div>
+            <input type="radio" name="layout" id="layout-2col" value="layout-2col" />
+            <label for="layout-2col">2 Cột</label>
+          </div>
+        </div>
+      </section>
+
+      <section class="ui">
+        <h2 class="ui__title">Cải thiện giao diện</h2>
+        <div class="ui__item">
+          <p>New Elearning</p>
+          <label class="switch">
+            <input id="ui__new-elearning" type="checkbox" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </section>
+
+      <section class="quick-access">
+        <h2 class="quick-access__title">Truy cập nhanh</h2>
+        <div class="btn-group">
+          <button data-id="notification" class="btn" type="button">
+            <div class="btn__icon">
+              <i class="fa fa-bell fa-lg"></i>
+            </div>
+            <p class="btn__text">Thông báo</p>
+          </button>
+
+          <button data-id="survey" class="btn" type="button">
+            <div class="btn__icon">
+              <i class="fa fa-check-square-o fa-lg"></i>
+            </div>
+            <p class="btn__text">Khảo sát</p>
+          </button>
+
+          <button data-id="info" class="btn" type="button">
+            <div class="btn__icon">
+              <i class="fa fa-info-circle fa-lg"></i>
+            </div>
+            <p class="btn__text">Thông tin sinh viên</p>
+          </button>
+
+          <button data-id="tuition" class="btn" type="button">
+            <div class="btn__icon">
+              <i class="fa fa-money fa-lg"></i>
+            </div>
+            <p class="btn__text">Học phí</p>
+          </button>
+
+          <button data-id="elearning" class="btn" type="button">
+            <div class="btn__icon">
+              <i class="fa fa-folder-open fa-lg"></i>
+            </div>
+            <p class="btn__text">Elearning</p>
+          </button>
+
+          <button data-id="new-elearning" class="btn" type="button">
+            <div class="btn__icon">
+              <i class="fa fa-laptop fa-lg"></i>
+            </div>
+            <p class="btn__text">New Elearning</p>
+          </button>
+
+          <button data-id="elearning-skill" class="btn" type="button">
+            <div class="btn__icon">
+              <i class="fa fa-lightbulb-o fa-lg"></i>
+            </div>
+            <p class="btn__text">Elearning Kỹ Năng</p>
+          </button>
+
+          <button data-id="score" class="btn" type="button">
+            <div class="btn__icon">
+              <i class="fa fa-check fa-lg"></i>
+            </div>
+            <p class="btn__text">Kết quả học tập</p>
+          </button>
+
+          <button data-id="student-cert" class="btn" type="button">
+            <div class="btn__icon">
+              <i class="fa fa-user-circle-o fa-lg"></i>
+            </div>
+            <p class="btn__text">Chứng nhận SV</p>
+          </button>
+
+          <button data-id="apply-online" class="btn" type="button">
+            <div class="btn__icon">
+              <i class="fa fa-globe fa-lg"></i>
+            </div>
+            <p class="btn__text">Nộp đơn trực truyến</p>
+          </button>
+
+          <button data-id="train" class="btn" type="button">
+            <div class="btn__icon">
+              <i class="fa fa-trophy fa-lg"></i>
+            </div>
+            <p class="btn__text">Điểm rèn luyện</p>
+          </button>
+
+          <button data-id="rule" class="btn" type="button">
+            <div class="btn__icon">
+              <i class="fa fa-exclamation-triangle fa-lg"></i>
+            </div>
+            <p class="btn__text">Qui chế - Quy định</p>
+          </button>
+
+          <button data-id="sport-club" class="btn" type="button">
+            <div class="btn__icon">
+              <i class="fa fa-soccer-ball-o fa-lg"></i>
+            </div>
+            <p class="btn__text">Sport club</p>
+          </button>
+
+          <button data-id="education" class="btn" type="button">
+            <div class="btn__icon">
+              <i class="fa fa-book fa-lg"></i>
+            </div>
+            <p class="btn__text">Đào tạo</p>
+          </button>
+
+          <button data-id="registration" class="btn" type="button">
+            <div class="btn__icon">
+              <i class="fa fa-calendar-check-o fa-lg"></i>
+            </div>
+            <p class="btn__text">ĐKMH</p>
+          </button>
+
+          <button data-id="schedule" class="btn" type="button">
+            <div class="btn__icon">
+              <i class="fa fa-calendar fa-lg"></i>
+            </div>
+            <p class="btn__text">TKB</p>
+          </button>
+
+          <button data-id="exam" class="btn" type="button">
+            <div class="btn__icon">
+              <i class="fa fa-pencil-square-o fa-lg"></i>
+            </div>
+            <p class="btn__text">Lịch thi</p>
+          </button>
+
+          <button data-id="map" class="btn" type="button">
+            <div class="btn__icon">
+              <i class="fa fa-mortar-board fa-lg"></i>
+            </div>
+            <p class="btn__text">SĐĐT</p>
+          </button>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button data-id="save" class="btn">Lưu</button>
+      </div>
+    </div>
+
+    <script src="/scripts/options.js"></script>
+  </body>
+</html>
