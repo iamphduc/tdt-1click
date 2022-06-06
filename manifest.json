@@ -17,18 +17,28 @@
       "128": "/assets/1_click_128.png"
     }
   },
-  "options_page": "/options.html",
   "icons": {
     "16": "/assets/1_click_16.png",
     "32": "/assets/1_click_32.png",
     "48": "/assets/1_click_48.png",
     "128": "/assets/1_click_128.png"
   },
+  "options_page": "/options.html",
   "content_scripts": [
     {
       "matches": ["https://studentnews.tdtu.edu.vn/ThongBao/Filter"],
       "js": ["/features/notification/mark-as-read.js"],
       "css": ["/features/notification/mark-as-read.css"]
+    },
+    {
+      "matches": ["https://elearning.tdtu.edu.vn/*"],
+      "js": ["/features/ui-improving/new-elearning.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["/features/ui-improving/new-elearning.css"],
+      "matches": ["https://elearning.tdtu.edu.vn/*"]
     }
   ]
 }

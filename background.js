@@ -64,17 +64,3 @@ function openPage(url) {
     chrome.tabs.onUpdated.addListener(handler);
   });
 }
-
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tabInfor) => {
-  if (tabInfor.url.includes(NEW_ELEARNNG_URL) && changeInfo.status === "complete") {
-    chrome.storage.sync.get("setting", ({ setting }) => {
-      const isEnhanced = setting?.ui.newElearning || false;
-      if (isEnhanced) {
-        chrome.scripting.insertCSS({
-          target: { tabId: tabId },
-          files: ["/features/ui-improving/new-elearning.css"],
-        });
-      }
-    });
-  }
-});
