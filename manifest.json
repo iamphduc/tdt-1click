@@ -1,7 +1,7 @@
 {
   "name": "TDT 1Click",
   "description": "Navigate to TDTU page within 1 click",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "manifest_version": 3,
   "background": {
     "service_worker": "background.js"
@@ -11,18 +11,18 @@
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "/images/1_click_16.png",
-      "32": "/images/1_click_32.png",
-      "48": "/images/1_click_48.png",
-      "128": "/images/1_click_128.png"
+      "16": "/assets/1_click_16.png",
+      "32": "/assets/1_click_32.png",
+      "48": "/assets/1_click_48.png",
+      "128": "/assets/1_click_128.png"
     }
   },
   "options_page": "/options.html",
   "icons": {
-    "16": "/images/1_click_16.png",
-    "32": "/images/1_click_32.png",
-    "48": "/images/1_click_48.png",
-    "128": "/images/1_click_128.png"
+    "16": "/assets/1_click_16.png",
+    "32": "/assets/1_click_32.png",
+    "48": "/assets/1_click_48.png",
+    "128": "/assets/1_click_128.png"
   },
   "content_scripts": [
     {
