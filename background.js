@@ -1,8 +1,6 @@
 const LOGIN_URL = "https://stdportal.tdtu.edu.vn/Login/Index";
 const NEW_ELEARNNG_URL = "https://elearning.tdtu.edu.vn/";
 const PORTAL_URL = {
-  "home": "https://stdportal.tdtu.edu.vn",
-
   "notification": "https://studentnews.tdtu.edu.vn",
   "survey": "https://survey-beta.tdtu.edu.vn",
   "info": "https://stdportal.tdtu.edu.vn/main/thongtinsinhvien",
@@ -25,6 +23,8 @@ const PORTAL_URL = {
 
   "exam": "https://lichhoc-lichthi.tdtu.edu.vn/xemlichthi.aspx",
   "map": "https://learninginfo.tdtu.edu.vn/sv_xemctdt",
+
+  "home": "https://stdportal.tdtu.edu.vn",
 };
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -44,19 +44,23 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 function openPage(url) {
-  chrome.tabs.create({ url: LOGIN_URL, active: true }, (tab) => {
+  chrome.tabs.create({ url, active: true }, (tab) => {
     function handler(tabId, changeInfo, tabInfor) {
       if (tabId === tab.id && changeInfo.status === "complete") {
         chrome.tabs.onUpdated.removeListener(handler);
+
+        // Injects script if login page
         if (tabInfor.url.includes(LOGIN_URL)) {
           chrome.scripting.executeScript({
             target: { tabId: tab.id },
             files: ["content-scripts/login.js"],
           });
           chrome.tabs.onUpdated.addListener(handler);
-        } else {
-          // chrome.tabs.create({ url });
-          // chrome.tabs.remove(tabInfor.id);
+          return;
+        }
+
+        // Redirects til tabInfor is matched with destination url
+        if (!tabInfor.url.includes(url)) {
           chrome.tabs.update(tabInfor.id, { url });
         }
       }
