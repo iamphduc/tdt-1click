@@ -1,0 +1,151 @@
+/* Injected CSS */
+
+td {
+  padding: 8px !important;
+}
+
+table {
+  border-collapse: unset !important;
+}
+
+#nav-drawer {
+  overflow-x: hidden;
+  height: calc(100vh - 70px) !important;
+}
+
+#nav-drawer .list-group + .list-group {
+  border: none !important;
+}
+
+#nav-drawer .list-group:nth-child(2) {
+  box-shadow: 0 -2px 5px -2px #888 !important;
+  background-color: #f5f5f5;
+}
+
+[data-region="drawer"] {
+  width: auto !important;
+  max-width: 300px !important;
+  padding-right: 5px;
+  height: calc(100vh - 70px);
+  box-shadow: 0 0 5px -2px #57a9f1;
+}
+
+[data-region="drawer"]::-webkit-scrollbar-track-piece {
+  background-color: white !important;
+}
+
+[data-region="drawer"]::-webkit-scrollbar-thumb {
+  background-color: #57a9f148 !important;
+
+  outline: unset !important;
+}
+
+[data-region="drawer"]:hover::-webkit-scrollbar-thumb {
+  background-color: #57a9f1a1 !important;
+}
+
+#nav-drawer > ul > li > a {
+  display: flex !important;
+}
+
+#nav-drawer > ul > li > a > span {
+  display: block !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.r0,
+.r1 {
+  padding: 8px 16px !important;
+}
+
+.r0:hover,
+.r1:hover {
+  background-color: #26c6da !important;
+
+  border-radius: 4px !important;
+}
+
+#sidepre-blocks {
+  padding: 16px 10px 16px 16px !important;
+  box-shadow: 0 0 5px -2px #57a9f1;
+
+  /* overflow: hidden !important; */
+}
+
+#sidepre-blocks::-webkit-scrollbar-thumb {
+  background-color: #57a9f148 !important;
+}
+
+#sidepre-blocks:hover::-webkit-scrollbar-thumb {
+  background-color: #57a9f1a1 !important;
+}
+
+#sidepre-blocks::-webkit-scrollbar {
+  width: 6px !important  ;
+}
+
+.r0:hover *,
+.r1:hover * {
+  color: white !important;
+}
+
+body[id^="page-"] {
+  margin-left: 300px !important;
+}
+
+span.text.m-l-0,
+span.text {
+  display: inline-block !important;
+  margin-left: 8px !important;
+}
+
+#nav-drawer .list-group .list-group-item {
+  border-radius: 4px !important;
+}
+
+#nav-drawer .list-group .list-group-item:hover > * {
+  color: white !important;
+}
+
+#sidepreopen-control {
+  display: flex !important;
+  align-items: center !important;
+  border-radius: 4px !important;
+  height: 160px !important;
+}
+
+.card-body.p-3 {
+  box-shadow: 0 0 6px -2px #888 !important;
+}
+
+[id^="inst"] {
+  border: none !important;
+  border-radius: 8px !important;
+}
+
+[id^="inst"] > div {
+  border-radius: 8px !important;
+}
+
+.btn {
+  border-radius: 8px !important;
+}
+
+#nav-drawer.closed {
+  overflow-y: scroll !important;
+  overflow-x: hidden !important;
+}
+
+nav.navbar .drawer-toggle {
+  display: none !important;
+}
+
+.calendar_event_course {
+  border-radius: 4px;
+}
+
+[data-key="home"].font-weight-bold {
+  font-weight: normal !important;
+}

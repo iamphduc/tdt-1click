@@ -69,10 +69,10 @@ function setUpQuickAccessButtons(buttons) {
 
   document.querySelectorAll("[data-id]").forEach((btn) => {
     btn.addEventListener("click", async (e) => {
-      const page = e.currentTarget.getAttribute("data-id");
+      const pageId = e.currentTarget.getAttribute("data-id");
       const hasInputFilled = await checkInput();
       if (hasInputFilled) {
-        chrome.runtime.sendMessage({ message: "open-page", page });
+        chrome.runtime.sendMessage({ message: "open-page", data: { pageId } });
       }
     });
   });
@@ -114,12 +114,16 @@ async function setUpHighlightButton() {
     currentURL = "https://stdportal.tdtu.edu.vn/main/elearningv2";
   }
 
-  const data = await chrome.runtime.sendMessage({ message: "highlight-page", currentURL });
-  if (data.id) {
-    highlightButton(data.id);
+  const data = await chrome.runtime.sendMessage({
+    message: "highlight-page",
+    data: { currentURL },
+  });
+
+  if (data?.pageId) {
+    highlightButton(data.pageId);
 
     const educationChildren = ["registration", "schedule", "exam", "map"];
-    if (educationChildren.includes(data.id)) {
+    if (educationChildren.includes(data.pageId)) {
       highlightButton("education");
     }
   }

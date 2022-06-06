@@ -27,8 +27,8 @@
   "content_scripts": [
     {
       "matches": ["https://studentnews.tdtu.edu.vn/ThongBao/Filter"],
-      "js": ["/mark_as_read/markAsRead.js"],
-      "css": ["/mark_as_read/mar.css"]
+      "js": ["/features/notification/mark-as-read.js"],
+      "css": ["/features/notification/mark-as-read.css"]
     }
   ]
 }

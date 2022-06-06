@@ -1,0 +1,14 @@
+/* Injected CSS */
+
+.mark-as-read {
+  float: right;
+  color: white;
+  background-color: #0067ac;
+  margin-top: 12px;
+  padding: 4px 8px;
+}
+
+.mark-as-read:disabled {
+  background-color: #ddd;
+  color: #888;
+}

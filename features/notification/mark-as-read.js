@@ -1,4 +1,8 @@
-const phongbanMap = {
+/**
+ * Injected JS
+ */
+
+const phongBanMap = {
   "Khoa Ngoại ngữ": "0",
   "Khoa Mỹ thuật Công nghiệp": "1",
   "Khoa Kế toán": "2",
@@ -14,7 +18,7 @@ const phongbanMap = {
   "Khoa Toán thống kê": "C",
   "Khoa Khoa học thể thao": "D",
   "Khoa Luật": "E",
-  Saxion: "F",
+  "Saxion": "F",
   "Trung tâm tin học": "G",
   "Khoa Dược": "H",
   "Khoa Giáo dục quốc tế": "I",
@@ -40,8 +44,7 @@ const phongbanMap = {
   "Tổ tư vấn học đường": "P20",
   "Ban PR": "P21",
   "Trung tâm tư vấn và kiểm định xây dựng": "P22",
-  "Trung tâm thực hành, dịch vụ và đào tạo, chuyển giao công nghệ (Cepsatt)":
-    "P26",
+  "Trung tâm thực hành, dịch vụ và đào tạo, chuyển giao công nghệ (Cepsatt)": "P26",
   "Trung tâm đào tạo phát triển xã hội (SDTC)": "P27",
   "Trung tâm Việt Nam học": "P28",
   "Trung tâm nghiên cứu và đào tạo kinh tế ứng dụng (Caer)": "P29",
@@ -54,78 +57,79 @@ const phongbanMap = {
   "Ban quản lý dự án": "P36",
   "Cơ sở Bảo Lộc": "P37",
   "TT Ngoại ngữ - Tin học - Bồi dưỡng Văn hóa (CIFLEET)": "P38",
-  "Trung tâm ứng dụng - Đào tạo và phát triển các giải pháp kinh tế (CATDES)":
-    "P39",
+  "Trung tâm ứng dụng - Đào tạo và phát triển các giải pháp kinh tế (CATDES)": "P39",
   "Trung tâm chuyên gia Hàn Quốc": "P42",
   "Trung tâm Bata": "P43",
   "Viện AIMAS": "P44",
   "Công ty TĐT": "P45",
-  VFIS: "P46",
+  "VFIS": "P46",
   "Viện GRIS": "P47",
   "Viện chính sách kinh tế và kinh doanh (IBEP)": "P48",
   "Viện Hợp tác, Nghiên cứu và Đào tạo quốc tế": "P50",
 };
 
-function createBtn(noti = document.getElementById("")) {
-  const markAsReadBtn = document.createElement("button");
-  markAsReadBtn.innerText = "Đánh dấu đã đọc";
-  markAsReadBtn.classList.add("mar-btn");
-  const unread = noti.querySelector('img[src="/images/new.png"]')
-    ? true
-    : false;
-  if (!unread) markAsReadBtn.disabled = true;
+function main() {
+  inject();
 
-  markAsReadBtn.addEventListener("click", async () => {
-    try {
-      const url = noti
-        .querySelector("a")
-        .getAttribute("onclick")
-        .split("('")[1]
-        .split("')")[0];
-      const tinTucID = url.split("/").pop();
-      const phongBanString = noti
-        .querySelector(".khoa-phong > i")
-        .textContent.trim();
-      const phongBanID = phongbanMap[phongBanString];
-      let res = await fetch(
-        `/ThongBao/UpdateDaXem?tinTucID=${tinTucID}&phongBanID=${phongBanID}`
-      ).catch((e) => console.log(e));
+  const targetNode = document.querySelector("#div_lstThongBao");
+  const config = { childList: true, subtree: true };
 
-      if (res.status === 200) {
-        const img = noti.querySelector('img[src="/images/new.png"]');
-        if (img) {
-          img.style.display = "none";
-        }
-        markAsReadBtn.disabled = true;
-      }
-    } catch (e) {
-      console.log(e);
-    }
+  const observer = new MutationObserver((mutationsList, observer) => {
+    observer.disconnect();
+    inject();
+    observer.observe(targetNode, config);
   });
 
-  return markAsReadBtn;
-}
-
-function addBtn() {
-  const notiList = document.querySelectorAll(
-    "#div_lstThongBao > div.list.box.text-shadow > div"
-  );
-  notiList.forEach((noti) => {
-    const markAsReadBtn = createBtn(noti);
-
-    noti.appendChild(markAsReadBtn);
-  });
-}
-addBtn();
-
-const targetNode = document.getElementById("div_lstThongBao");
-const config = { childList: true, subtree: true };
-
-const callback = function (mutationsList, observer) {
-  observer.disconnect();
-  addBtn();
   observer.observe(targetNode, config);
-};
+}
+main();
 
-const observer = new MutationObserver(callback);
-observer.observe(targetNode, config);
+function inject() {
+  const notiList = document.querySelectorAll("#div_lstThongBao > .list > .list-item");
+  notiList.forEach((elNoti) => {
+    const btnMarkAsRead = createBtnMarkAsRead(elNoti);
+    elNoti.appendChild(btnMarkAsRead);
+  });
+}
+
+function createBtnMarkAsRead(elNoti) {
+  const btnMarkAsRead = document.createElement("button");
+  btnMarkAsRead.textContent = "Đánh dấu đã đọc";
+  btnMarkAsRead.classList.add("mark-as-read");
+
+  // If notification contains "new" image, then it is unread notification
+  const IsUnread = elNoti.querySelector('img[src="/images/new.png"]') ? true : false;
+  if (!IsUnread) {
+    btnMarkAsRead.disabled = true;
+  } else {
+    btnMarkAsRead.addEventListener("click", async () => {
+      try {
+        // Sample anchor:
+        // <a onclick="openInNewTab('/ThongBao/Detail/138686')" class="link-detail" style="cursor:pointer!important;">Chi tiết thông báo</a>
+
+        const anchor = elNoti.querySelector("a");
+        const url = anchor.getAttribute("onclick").split("('")[1].split("')")[0];
+        const tinTucID = url.split("/").pop();
+
+        const phongBanString = elNoti.querySelector(".khoa-phong > i").textContent.trim();
+        const phongBanID = phongBanMap[phongBanString];
+
+        const res = await fetch(
+          `/ThongBao/UpdateDaXem?tinTucID=${tinTucID}&phongBanID=${phongBanID}`
+        );
+
+        if (res.status === 200) {
+          const img = elNoti.querySelector('img[src="/images/new.png"]');
+          if (img) {
+            img.style.display = "none";
+          }
+          btnMarkAsRead.disabled = true;
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    });
+  }
+
+  return btnMarkAsRead;
+}
