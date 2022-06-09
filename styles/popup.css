@@ -3,6 +3,12 @@ body {
   padding: 16px;
 }
 
+*,
+*::after,
+*::before {
+  box-sizing: content-box;
+}
+
 .title {
   color: #555;
   font-size: 2rem;
@@ -26,7 +32,7 @@ body {
 .form__group {
   position: relative;
   padding: 16px 0 0;
-  width: 100%;
+  width: 85%;
   margin-bottom: 8px;
 }
 
@@ -102,6 +108,7 @@ body {
   border-radius: 4px;
   color: #555;
   cursor: pointer;
+  box-sizing: border-box;
 }
 
 .options:hover {
@@ -145,7 +152,7 @@ body {
 
 /* Hide Scrollbar for education children */
 ::-webkit-scrollbar {
-  width: 0;
+  display: none;
 }
 
 /* ===== Buttons Highlight ===== */
