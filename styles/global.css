@@ -1,7 +1,31 @@
-:root {
-  --primary: #17a2b8;
+:root,
+:root[data-theme="light"] {
+  color-scheme: light dark;
 
-  --bg: #fff;
+  --overlay: #383b40;
+  --surface: #f1f1f1;
+  --background: #fafafa;
+  --title: #27292d;
+  --text: #1f2023;
+  --primary: #17a2b8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --overlay: #2d2f34;
+    --surface: #27292d;
+    --background: #1f2023;
+    --title: #fafafa;
+    --text: #ccc;
+    --primary: #17a2b8;
+  }
+}
+:root[data-theme="dark"] {
+  --overlay: #2d2f34;
+  --surface: #27292d;
+  --background: #1f2023;
+  --reverse-surface: #f1f1f1;
+  --primary: #17a2b8;
 }
 
 *,
@@ -12,6 +36,8 @@
 
 body {
   font-family: sans-serif;
+  background-color: var(--background);
+  color: var(--text);
 }
 
 .hidden {

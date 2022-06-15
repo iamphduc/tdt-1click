@@ -1,23 +1,80 @@
-body {
-  background-color: #f8f9fa;
-}
-
 .container {
-  color: #555;
-  background-color: white;
+  background-color: var(--surface);
   width: 90%;
-  max-width: 800px;
+  max-width: 850px;
   margin: 60px auto;
-  padding: 20px;
+  padding: 20px 32px;
   border-radius: 12px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  position: relative;
 }
 
 .page-title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
   margin: 12px 0px 32px 0px;
+  color: var(--title);
+}
+
+.theme-toggle {
+  width: 80px;
+  background-color: #555;
+  margin: 12px 0px;
+  position: absolute;
+  top: 20px;
+  right: 32px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 40px;
+  padding: 6px;
+}
+[data-theme="dark"] .theme-toggle {
+  background-color: #ccc;
+}
+
+.theme-toggle__circle {
+  width: 24px;
+  height: 24px;
+  background-color: var(--primary);
+  border-radius: 100%;
+  transition: 0.5s;
+  filter: brightness(1.2);
+}
+[data-theme="dark"] .theme-toggle__circle {
+  transform: translateX(44px);
+  transition: 0.5s;
+  filter: brightness(0.9);
+}
+
+.theme-toggle__input {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.theme-toggle__light-icon {
+  display: none;
+}
+[data-theme="dark"] .theme-toggle__light-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+
+.theme-toggle__dark-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 8px;
+}
+[data-theme="dark"] .theme-toggle__dark-icon {
+  display: none;
 }
 
 .layout {
@@ -84,8 +141,15 @@ body {
   padding: 4px 16px;
 }
 
-[data-id="save"] {
+.actions {
   width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+[data-id="save"] {
+  width: 50%;
+  flex-grow: 0;
   background-color: #33be54;
   border: 2px solid #33be54;
   border-radius: 4px;

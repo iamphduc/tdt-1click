@@ -13,13 +13,25 @@
     <link rel="stylesheet" href="/styles/button.css" />
     <link rel="stylesheet" href="/styles/switch.css" />
     <link rel="stylesheet" href="/styles/options.css" />
-  </head>
 
+    <script src="./scripts/theme.js"></script>
+  </head>
   <body>
     <div class="container">
-      <header>
+      <div>
         <h1 class="page-title">TDT 1Click</h1>
-      </header>
+        <div class="theme-toggle hidden">
+          <div class="theme-toggle__circle"></div>
+          <input
+            type="checkbox"
+            class="theme-toggle__input"
+            name="theme-toggle"
+            id="chk-theme-toggle"
+          />
+          <img class="theme-toggle__light-icon" src="./assets/light_mode.svg" alt="Light Mode" />
+          <img class="theme-toggle__dark-icon" src="./assets/dark_mode.svg" alt="Dark Mode" />
+        </div>
+      </div>
 
       <section class="layout">
         <h2 class="layout__title">Bố cục</h2>

@@ -7,6 +7,8 @@ async function main() {
   renderUI();
   renderQuickAccessButtons();
   renderActions();
+
+  await initThemeToggleButton();
 }
 main();
 
@@ -124,4 +126,29 @@ function renderActions() {
     await chrome.storage.sync.set({ setting });
     alert("Đã lưu cài đặt của bạn!");
   });
+}
+
+async function initThemeToggleButton() {
+  const divThemeToggle = document.querySelector(".theme-toggle");
+  const btnTheme = document.querySelector(`#chk-theme-toggle`);
+
+  // Sets theme toggle button state
+  const { theme } = await chrome.storage.sync.get("theme");
+  if (theme && theme === "dark") {
+    btnTheme.checked = true;
+  } else if (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    btnTheme.checked = true;
+  }
+
+  // Show button after theme is set
+  divThemeToggle.classList.remove("hidden");
+
+  btnTheme.addEventListener("change", (ev) => {
+    setTheme(ev.target.checked ? "dark" : "light");
+  });
+
+  const setTheme = async (mode = "light") => {
+    document.documentElement.setAttribute("data-theme", mode);
+    await chrome.storage.sync.set({ theme: mode });
+  };
 }
