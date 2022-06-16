@@ -4,7 +4,7 @@
 
   --overlay: #383b40;
   --surface: #f1f1f1;
-  --background: #fafafa;
+  --background: #fdfdfd;
   --title: #27292d;
   --text: #1f2023;
   --primary: #17a2b8;
@@ -15,17 +15,20 @@
     --overlay: #2d2f34;
     --surface: #27292d;
     --background: #1f2023;
-    --title: #fafafa;
-    --text: #ccc;
+    --title: #fff;
+    --text: #ddd;
     --primary: #17a2b8;
+
+    opacity: 90%;
   }
 }
 :root[data-theme="dark"] {
   --overlay: #2d2f34;
   --surface: #27292d;
   --background: #1f2023;
-  --reverse-surface: #f1f1f1;
   --primary: #17a2b8;
+
+  opacity: 90%;
 }
 
 *,
