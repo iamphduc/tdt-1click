@@ -1,5 +1,6 @@
 const LOGIN_URL = "https://stdportal.tdtu.edu.vn/Login/Index";
 const NEW_ELEARNNG_URL = "https://elearning.tdtu.edu.vn/";
+const TEACHING_QUALITY_SURVEY_URL = "https://teaching-quality-survey.tdtu.edu.vn";
 const PORTAL_URL = {
   "notification": "https://studentnews.tdtu.edu.vn",
   "survey": "https://survey-beta.tdtu.edu.vn",
@@ -56,6 +57,11 @@ function openPage(url) {
             files: ["content-scripts/login.js"],
           });
           chrome.tabs.onUpdated.addListener(handler);
+          return;
+        }
+
+        if (tabInfor.url.includes(TEACHING_QUALITY_SURVEY_URL)) {
+          chrome.tabs.onUpdated.removeListener(handler);
           return;
         }
 
