@@ -69,13 +69,6 @@
   background-color: #e95022;
 }
 
-[data-id="new-elearning"] {
-  color: #d73a33;
-}
-[data-id="new-elearning"] .btn__text {
-  background-color: #d73a33;
-}
-
 [data-id="elearning-skill"] {
   color: #46bda1;
 }

@@ -1,5 +1,4 @@
 const LOGIN_URL = "https://stdportal.tdtu.edu.vn/Login/Index";
-const NEW_ELEARNNG_URL = "https://elearning.tdtu.edu.vn/";
 const TEACHING_QUALITY_SURVEY_URL = "https://teaching-quality-survey.tdtu.edu.vn";
 const PORTAL_URL = {
   "notification": "https://studentnews.tdtu.edu.vn",
@@ -7,8 +6,7 @@ const PORTAL_URL = {
   "info": "https://stdportal.tdtu.edu.vn/main/thongtinsinhvien",
   "tuition": "https://hocphilephi.tdtu.edu.vn",
 
-  "elearning": "https://stdportal.tdtu.edu.vn/main/elearning",
-  "new-elearning": "https://stdportal.tdtu.edu.vn/main/elearningv2",
+  "elearning": "https://stdportal.tdtu.edu.vn/main/elearningv2",
   "elearning-skill": "https://elearning-ability.tdtu.edu.vn",
   "score": "https://ketquahoctap.tdtu.edu.vn/home",
 

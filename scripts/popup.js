@@ -105,10 +105,6 @@ async function setUpHighlightButton() {
 
   // Transforms URL to match the redirected URL
   let currentURL = tabURL.toString();
-  const elearningURL = "http://elearning.tdt.edu.vn";
-  if (currentURL.includes(elearningURL)) {
-    currentURL = "https://stdportal.tdtu.edu.vn/main/elearning";
-  }
   const newElearningURL = "https://elearning.tdtu.edu.vn";
   if (currentURL.includes(newElearningURL)) {
     currentURL = "https://stdportal.tdtu.edu.vn/main/elearningv2";
